@@ -67,20 +67,14 @@ private ResponseEntity<Filijala>updateFilijala(@RequestBody Filijala filijala,@P
         return new ResponseEntity<HttpStatus>(HttpStatus.NOT_FOUND);
     }
 
-    @ApiOperation(value = "Gets Filijala by Naziv.")
-    @GetMapping("filijala/naziv/{naziv}")
-    public ResponseEntity<List<Filijala>> getByNaziv(@PathVariable("naziv") String naziv){
-        List<Filijala> f=filijalaService.findByNazivContainingIgnoreCase(naziv);
+    @ApiOperation(value = "Gets Filijala by Adresa.")
+    @GetMapping("filijala/adresa/{naziv}")
+    public ResponseEntity<List<Filijala>> getByAdresa(@PathVariable("naziv") String naziv){
+        List<Filijala> f=filijalaService.findByadresaContainingIgnoreCase(naziv);
         return new ResponseEntity<>(f,HttpStatus.OK);
 
     }
-    @ApiOperation(value = "Gets Filijala by Poseduje_sef.")
-    @GetMapping("filijala/poseduje_sef")
-    private ResponseEntity<List<Filijala>> getbyPoseduje_sef()
-    {
-        List<Filijala> f =filijalaService.findByPoseduje_sefTrue();
-        return ResponseEntity.ok().body(f);
-    }
+   
 
 
 

@@ -8,5 +8,5 @@ import rppbackend.model.Usluga;
 
 public interface UslugaRepository extends JpaRepository<Usluga,Integer> {
 
-    List<Usluga> findByNazivContainingIgnoreCase(String Naziv);
+    List<Usluga> findBynazivContainingIgnoreCase(String naziv);
 }

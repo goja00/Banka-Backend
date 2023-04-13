@@ -13,10 +13,10 @@ public class Korisnik_usluge {
     @Id
     @SequenceGenerator(name="Korisnik_usluge_ID_Generator",sequenceName = "Korisnik_usluge_Seq",allocationSize = 1)
     @GeneratedValue(strategy =GenerationType.SEQUENCE,generator= "Korisnik_usluge_ID_Generator")
-    private int ID;
-    private String Ime;
-    private String Prezime;
-    private String Maticni_broj;
+    private int id;
+    private String ime;
+    private String prezime;
+    private String maticni_broj;
     @OneToMany(mappedBy = "korisnik_usluge",cascade = {CascadeType.ALL})
     @JsonIgnore
     private List<Usluga> usluga;
@@ -26,35 +26,35 @@ public class Korisnik_usluge {
     }
 
     public int getID() {
-        return ID;
+        return id;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this.id = ID;
     }
 
     public String getIme() {
-        return Ime;
+        return ime;
     }
 
     public void setIme(String ime) {
-        Ime = ime;
+        this.ime = ime;
     }
 
     public String getPrezime() {
-        return Prezime;
+        return prezime;
     }
 
     public void setPrezime(String prezime) {
-        Prezime = prezime;
+        this.prezime = prezime;
     }
 
     public String getMaticni_broj() {
-        return Maticni_broj;
+        return maticni_broj;
     }
 
     public void setMaticni_broj(String maticni_broj) {
-        Maticni_broj = maticni_broj;
+        this.maticni_broj = maticni_broj;
     }
 
     public List<Usluga> getUsluga() {

@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import rppbackend.model.Filijala;
 
 public interface FilijalaRepository extends JpaRepository<Filijala,Integer> {
-    List<Filijala> findByAdresaContainingIgnoreCase(String Adresa);
-    List<Filijala> findByPoseduje_sefTrue();
+    List<Filijala> findByadresaContainingIgnoreCase(String adresa);
+
 }

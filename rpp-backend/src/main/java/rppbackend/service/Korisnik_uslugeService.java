@@ -23,8 +23,8 @@ public class Korisnik_uslugeService {
         return korisnikUslugeRepository.findById(id);
     }
 
-    public List<Korisnik_usluge> findByNazivContainingIgnoreCase(String naziv) {
-        return korisnikUslugeRepository.findByImeContainingIgnoreCase(naziv);
+    public List<Korisnik_usluge> findByimeContainingIgnoreCase(String naziv) {
+        return korisnikUslugeRepository.findByimeContainingIgnoreCase(naziv);
     }
     public Korisnik_usluge save(Korisnik_usluge banka) {
         return korisnikUslugeRepository.save(banka);

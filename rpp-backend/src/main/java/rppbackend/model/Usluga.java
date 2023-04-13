@@ -11,9 +11,9 @@ public class Usluga {
     @Id
     @SequenceGenerator(name="Usluga_ID_Generator",sequenceName = "Usluga_Seq",allocationSize = 1)
     @GeneratedValue(strategy =GenerationType.SEQUENCE,generator= "Usluga_ID_Generator")
-    private int ID;
-    private String Naziv;
-    private String Opis_usluge;
+    private int id;
+    private String naziv;
+    private String opis_usluge;
     private Date datum_ugovora;
     private float provizija;
     @ManyToOne
@@ -28,27 +28,27 @@ public class Usluga {
     }
 
     public int getID() {
-        return ID;
+        return id;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this.id = ID;
     }
 
     public String getNaziv() {
-        return Naziv;
+        return naziv;
     }
 
     public void setNaziv(String naziv) {
-        Naziv = naziv;
+        this.naziv = naziv;
     }
 
     public String getOpis_usluge() {
-        return Opis_usluge;
+        return opis_usluge;
     }
 
     public void setOpis_usluge(String opis_usluge) {
-        Opis_usluge = opis_usluge;
+        this.opis_usluge = opis_usluge;
     }
 
     public Date getDatum_ugovora() {

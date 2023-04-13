@@ -24,7 +24,7 @@ public class BankaService {
     }
 
     public List<Banka> findByNazivContainingIgnoreCase(String naziv) {
-        return bankaRepository.findByNazivContainingIgnoreCase(naziv);
+        return bankaRepository.findBynazivContainingIgnoreCase(naziv);
     }
 
     public Banka save(Banka banka) {

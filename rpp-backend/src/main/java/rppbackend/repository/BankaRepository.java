@@ -8,5 +8,5 @@ import rppbackend.model.Banka;
 
 public interface BankaRepository extends JpaRepository<Banka,Integer> {
 
-    List<Banka> findByNazivContainingIgnoreCase(String Naziv);
+    List<Banka> findBynazivContainingIgnoreCase(String naziv);
 }

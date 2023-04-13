@@ -11,17 +11,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "Filijala", schema = "public")
 @NamedQuery(name="Filijala.findAll", query="SELECT f FROM Filijala f")
 public class Filijala implements Serializable {
-    /**
-	 * 
-	 */
+
+	
 	private static final long serialVersionUID = 1L;
 	@Id
     @SequenceGenerator(name="Filijala_ID_Generator",sequenceName = "Filijala_Seq",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "Filijala_ID_Generator")
-private int ID;
-private String Adresa;
-private int Broj_pultova;
-private boolean Poseduje_sef;
+private int id;
+private String adresa;
+private int broj_pultova;
+private boolean poseduje_sef;
 @ManyToOne
 @JoinColumn(name="banka")
 private Banka banka;
@@ -36,35 +35,35 @@ private List<Usluga> usluga;
     }
 
     public int getID() {
-        return ID;
+        return id;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this.id = ID;
     }
 
     public String getAdresa() {
-        return Adresa;
+        return adresa;
     }
 
     public void setAdresa(String adresa) {
-        Adresa = adresa;
+        this.adresa = adresa;
     }
 
     public int getBroj_pultova() {
-        return Broj_pultova;
+        return broj_pultova;
     }
 
     public void setBroj_pultova(int broj_pultova) {
-        Broj_pultova = broj_pultova;
+        this.broj_pultova = broj_pultova;
     }
 
     public boolean isPoseduje_sef() {
-        return Poseduje_sef;
+        return poseduje_sef;
     }
 
-    public void setPoseduje_sef(boolean poseduje_sef) {
-        Poseduje_sef = poseduje_sef;
+    public void setposedujeSef(boolean poseduje_sef) {
+        this.poseduje_sef = poseduje_sef;
     }
 
     public Banka getBanka() {

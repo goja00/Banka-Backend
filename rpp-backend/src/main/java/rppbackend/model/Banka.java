@@ -17,10 +17,10 @@ public class Banka  implements Serializable {
 	@Id
     @SequenceGenerator(name="Banka_ID_Generator",sequenceName = "Banka_Seq",allocationSize = 1)
     @GeneratedValue(strategy =GenerationType.SEQUENCE,generator= "Banka_ID_Generator")
-    private int ID;
-    private String Naziv;
-    private String Kontakt;
-    private int PIB;
+    private int id;
+    private String naziv;
+    private String kontakt;
+    private int pib;
     @OneToMany(mappedBy = "banka")
     @JsonIgnore
     private List<Filijala> filijala;
@@ -30,33 +30,33 @@ public class Banka  implements Serializable {
     }
 
     public int getID() {
-        return ID;
+        return id;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this.id = ID;
     }
 
     public String getNaziv() {
-        return Naziv;
+        return naziv;
     }
 
     public void setNaziv(String naziv) {
-        Naziv = naziv;
+        this.naziv = naziv;
     }
     public String getKontakt() {
-        return Kontakt;
+        return kontakt;
     }
 
     public void setKontakt(String kontakt) {
-        Kontakt = kontakt;
+        this.kontakt = kontakt;
     }
 
     public int getPIB() {
-        return PIB;
+        return pib;
     }
 
     public void setPIB(int PIB) {
-        this.PIB = PIB;
+        this.pib = PIB;
     }
 }

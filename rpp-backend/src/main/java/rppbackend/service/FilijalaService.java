@@ -23,13 +23,10 @@ public class FilijalaService {
         return filijalaRepository.findById(id);
     }
 
-    public List<Filijala> findByNazivContainingIgnoreCase(String naziv) {
-        return filijalaRepository.findByAdresaContainingIgnoreCase(naziv);
+    public List<Filijala> findByadresaContainingIgnoreCase(String naziv) {
+        return filijalaRepository.findByadresaContainingIgnoreCase(naziv);
     }
-    public List<Filijala>findByPoseduje_sefTrue(){
-        return filijalaRepository.findByPoseduje_sefTrue();
-    }
-    public Filijala save(Filijala filijala) {
+      public Filijala save(Filijala filijala) {
         return filijalaRepository.save(filijala);
     }
 

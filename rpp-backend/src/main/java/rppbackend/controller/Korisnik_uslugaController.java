@@ -70,9 +70,9 @@ public class Korisnik_uslugaController {
     }
 
     @ApiOperation(value = "Gets Korisnik_usluge by Naziv.")
-    @GetMapping("korisnik_usluge/naziv/{naziv}")
+    @GetMapping("korisnik_usluge/ime/{naziv}")
     public ResponseEntity<List<Korisnik_usluge>> getByNaziv(@PathVariable("naziv") String naziv){
-        List<Korisnik_usluge> f=korisnikUslugeService.findByNazivContainingIgnoreCase(naziv);
+        List<Korisnik_usluge> f=korisnikUslugeService.findByimeContainingIgnoreCase(naziv);
         return new ResponseEntity<>(f,HttpStatus.OK);
 
     }
