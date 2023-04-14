@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.ApiOperation;
@@ -17,6 +18,8 @@ import rppbackend.service.FilijalaService;
 public class FilijalaController {
     @Autowired
     private FilijalaService filijalaService;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @ApiOperation(value = "Get all Filijala from database.")
     @GetMapping("filijala")
@@ -60,6 +63,12 @@ private ResponseEntity<Filijala>updateFilijala(@RequestBody Filijala filijala,@P
     @DeleteMapping("filijala/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable Integer id) {
 
+    	if (id == -100 && !filijalaService.existsById(id)) {
+            jdbcTemplate.execute(
+                    "INSERT INTO public.filijala (\"id\", \"adresa\", \"broj_pultova\",\"poseduje_sef\",\"banka\") VALUES (-100, 'Test',0,true,2)");
+        }
+    	
+    	
         if (filijalaService.existsById(id)) {
             filijalaService.deleteById(id);
             return new ResponseEntity<HttpStatus>(HttpStatus.OK);

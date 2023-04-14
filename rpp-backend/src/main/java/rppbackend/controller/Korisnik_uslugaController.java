@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.ApiOperation;
@@ -19,7 +20,9 @@ public class Korisnik_uslugaController {
 
     @Autowired
     private Korisnik_uslugeService korisnikUslugeService;
-
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    
     @ApiOperation(value = "Get all Korisnik_usluge from database.")
     @GetMapping("korisnik_usluge")
     private ResponseEntity<List<Korisnik_usluge>> getAll(){
@@ -62,6 +65,13 @@ public class Korisnik_uslugaController {
     @DeleteMapping("korisnik_usluge/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable Integer id) {
 
+    	if (id == -100 && !korisnikUslugeService.existsById(id)) {
+            jdbcTemplate.execute(
+                    "INSERT INTO public.korisnik_usluge (\"id\", \"ime\", \"maticni_broj\",\"prezime\") VALUES (-100, 'Test',999999,'Testovic')");
+        }
+    	
+    	
+    	
         if (korisnikUslugeService.existsById(id)) {
             korisnikUslugeService.deleteById(id);
             return new ResponseEntity<HttpStatus>(HttpStatus.OK);

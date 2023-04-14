@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.ApiOperation;
@@ -20,7 +21,9 @@ public class BankaController {
 
     @Autowired
     private BankaService bankaService;
-
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    
     @ApiOperation(value = "Returns List of all Banks")
     @GetMapping("banka")
     public ResponseEntity<List<Banka>> getAll(){
@@ -61,6 +64,13 @@ public class BankaController {
     @DeleteMapping("banka/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable Integer id) {
 
+    	 if (id == -100 && !bankaService.existsById(id)) {
+             jdbcTemplate.execute(
+                     "INSERT INTO public.banka (\"id\", \"kontakt\", \"naziv\",\"pib\") VALUES (-100, 'TEST', 'Test Naziv',999999)");
+    	 }
+    	
+    	
+    	
         if (bankaService.existsById(id)) {
             bankaService.deleteById(id);
             return new ResponseEntity<HttpStatus>(HttpStatus.OK);

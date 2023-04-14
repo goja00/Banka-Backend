@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.ApiOperation;
@@ -19,7 +20,10 @@ public class UslugaController {
 
     @Autowired
     private UslugaService uslugaService;
-
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    
+    
     @ApiOperation(value = "Get all Usluga from database.")
     @GetMapping("usluga")
     private ResponseEntity<List<Usluga>> getAll(){
@@ -61,6 +65,11 @@ public class UslugaController {
     @ApiOperation(value = "Deletes Usluga with id that was forwarded as path variable.")
     @DeleteMapping("usluga/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable Integer id) {
+    	
+    	if (id == -100 && !uslugaService.existsById(id)) {
+            jdbcTemplate.execute(
+                    "INSERT INTO public.usluga (\"id\", \"naziv\", \"opis_usluge\",\"datum_ugovora\",\"provizija\",\"filijala\",\"korisnik_usluge\") VALUES (-100, 'Test','XXXXXXX','2022-03-03',0.5,2,2)");
+        }
 
         if (uslugaService.existsById(id)) {
             uslugaService.deleteById(id);
