@@ -132,7 +132,6 @@ public class UslugaController {
         List<Usluga> f=uslugaService.findBydatumUgovora(id);
         return new ResponseEntity<>(f,HttpStatus.OK);
  
-
     }
     
     

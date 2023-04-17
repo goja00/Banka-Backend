@@ -12,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @NamedQuery(name="Filijala.findAll", query="SELECT f FROM Filijala f")
 public class Filijala implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
 	@Id
     @SequenceGenerator(name="Filijala_ID_Generator",sequenceName = "Filijala_Seq",allocationSize = 1)

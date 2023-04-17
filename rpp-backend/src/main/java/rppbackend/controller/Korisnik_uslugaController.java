@@ -101,5 +101,4 @@ public class Korisnik_uslugaController {
         return new ResponseEntity<>(f,HttpStatus.OK);
 
     }
-
 }

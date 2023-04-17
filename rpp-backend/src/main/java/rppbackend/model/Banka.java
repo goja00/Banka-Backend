@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table
 @NamedQuery(name="Banka.findAll", query="SELECT b FROM Banka b")

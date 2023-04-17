@@ -1,5 +1,4 @@
 package rppbackend.model;
-
 import java.util.List;
 
 import javax.persistence.*;

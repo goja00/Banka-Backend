@@ -103,8 +103,7 @@ public class BankaController {
     	return new ResponseEntity<>(b,HttpStatus.OK);
     	
     }
-    
-    
- }
+   
+}
 
 

@@ -110,5 +110,4 @@ private ResponseEntity<Filijala>updateFilijala(@RequestBody Filijala filijala,@P
 
     }
 
-
 }

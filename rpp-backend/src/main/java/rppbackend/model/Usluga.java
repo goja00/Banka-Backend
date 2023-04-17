@@ -1,5 +1,4 @@
 package rppbackend.model;
-
 import java.util.Date;
 
 import javax.persistence.*;
