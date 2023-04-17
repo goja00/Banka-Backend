@@ -20,7 +20,7 @@ public class Filijala implements Serializable {
 private int id;
 private String adresa;
 private int broj_pultova;
-private boolean poseduje_sef;
+private boolean posedujeSef;
 @ManyToOne
 @JoinColumn(name="banka")
 private Banka banka;
@@ -59,11 +59,11 @@ private List<Usluga> usluga;
     }
 
     public boolean isPoseduje_sef() {
-        return poseduje_sef;
+        return posedujeSef;
     }
 
     public void setposedujeSef(boolean poseduje_sef) {
-        this.poseduje_sef = poseduje_sef;
+        this.posedujeSef = poseduje_sef;
     }
 
     public Banka getBanka() {
@@ -73,4 +73,12 @@ private List<Usluga> usluga;
     public void setBanka(Banka banka) {
         this.banka = banka;
     }
+
+	public List<Usluga> getUsluga() {
+		return usluga;
+	}
+
+	public void setUsluga(List<Usluga> usluga) {
+		this.usluga = usluga;
+	}
 }

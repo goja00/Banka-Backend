@@ -84,6 +84,27 @@ public class BankaController {
         List<Banka> bankas=bankaService.findByNazivContainingIgnoreCase(naziv);
         return new ResponseEntity<>(bankas,HttpStatus.OK);
     }
+    
+    @ApiOperation(value="Get Banka by PIB")
+    @GetMapping("banka/pib/{pib}")
+    private ResponseEntity<List<Banka>> getBypib(@PathVariable("pib") Integer n)
+    {
+    	
+    	List<Banka> b=bankaService.findBypib(n);
+    	return new ResponseEntity<>(b,HttpStatus.OK);
+    	
+    }
+    @ApiOperation(value="Get Banka by kontakt")
+    @GetMapping("banka/kontakt/{kontakt}")
+    private ResponseEntity<List<Banka>> getBykontakt(@PathVariable("kontakt") String kontakt)
+    {
+    	
+    	List<Banka> b=bankaService.findBykontakt(kontakt);
+    	return new ResponseEntity<>(b,HttpStatus.OK);
+    	
+    }
+    
+    
+ }
 
 
-}

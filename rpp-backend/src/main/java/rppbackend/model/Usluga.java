@@ -14,14 +14,14 @@ public class Usluga {
     private int id;
     private String naziv;
     private String opis_usluge;
-    private Date datum_ugovora;
+    private Date datumUgovora;
     private float provizija;
     @ManyToOne
     @JoinColumn(name="filijala")
     private Filijala filijala;
     @ManyToOne
-    @JoinColumn(name="korisnik_usluge")
-    private Korisnik_usluge korisnik_usluge;
+    @JoinColumn(name="korisnikUsluge")
+    private Korisnik_usluge korisnikUsluge;
 
     public Usluga() {
         super();
@@ -52,11 +52,11 @@ public class Usluga {
     }
 
     public Date getDatum_ugovora() {
-        return datum_ugovora;
+        return datumUgovora;
     }
 
     public void setDatum_ugovora(Date datum_ugovora) {
-        this.datum_ugovora = datum_ugovora;
+        this.datumUgovora = datum_ugovora;
     }
 
     public float getProvizija() {
@@ -76,10 +76,10 @@ public class Usluga {
     }
 
     public Korisnik_usluge getKorisnik_usluge() {
-        return korisnik_usluge;
+        return korisnikUsluge;
     }
 
     public void setKorisnik_usluge(Korisnik_usluge korisnik_usluge) {
-        this.korisnik_usluge = korisnik_usluge;
+        this.korisnikUsluge = korisnik_usluge;
     }
 }

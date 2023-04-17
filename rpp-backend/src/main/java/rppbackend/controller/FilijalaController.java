@@ -10,7 +10,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.ApiOperation;
+import rppbackend.model.Banka;
 import rppbackend.model.Filijala;
+import rppbackend.service.BankaService;
 import rppbackend.service.FilijalaService;
 
 @CrossOrigin
@@ -18,6 +20,8 @@ import rppbackend.service.FilijalaService;
 public class FilijalaController {
     @Autowired
     private FilijalaService filijalaService;
+    @Autowired
+    private BankaService bankaService;
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -83,8 +87,28 @@ private ResponseEntity<Filijala>updateFilijala(@RequestBody Filijala filijala,@P
         return new ResponseEntity<>(f,HttpStatus.OK);
 
     }
-   
+    @ApiOperation(value = "Get list of Filijala by banka ID.")
+    @GetMapping("filijala/banka/{id}")
+    public ResponseEntity<List<Filijala>> getBybanka(@PathVariable("id") Integer id){
+    	Optional<Banka> b=bankaService.findById(id);
+    	if(b.isPresent())
+    	{
+        List<Filijala> f=filijalaService.findBybanka(b.get());
+        return new ResponseEntity<>(f,HttpStatus.OK);
+    	}
+    	else {
+    		return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+    	}
 
+    }
+
+    @ApiOperation(value = "Get list of Filijala by posedujeSef set to True.")
+    @GetMapping("filijala/poseduje_sef/")
+    public ResponseEntity<List<Filijala>> getByposedujeSef(){
+        List<Filijala> f=filijalaService.findByposedujeSef();
+        return new ResponseEntity<>(f,HttpStatus.OK);
+
+    }
 
 
 }

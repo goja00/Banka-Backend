@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import rppbackend.model.Banka;
 import rppbackend.model.Filijala;
 import rppbackend.repository.FilijalaRepository;
 
@@ -37,5 +38,14 @@ public class FilijalaService {
     public void deleteById(Integer id) {
         filijalaRepository.deleteById(id);
     }
+    
+    public List<Filijala> findBybanka(Banka n)
+    {
+    	return filijalaRepository.findBybanka(n);
+    }
 
+    public List<Filijala> findByposedujeSef()
+    {
+    	return filijalaRepository.findByposedujeSefTrue();
+    }
 }

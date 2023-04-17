@@ -38,4 +38,12 @@ public class Korisnik_uslugeService {
         korisnikUslugeRepository.deleteById(id);
     }
 
+    public List<Korisnik_usluge> findBymaticniBroj(String n)
+    {
+    	return korisnikUslugeRepository.findBymaticniBroj(n);
+    }
+    
+    public List<Korisnik_usluge> findByprezimeContainingIgnoreCase(String naziv) {
+        return korisnikUslugeRepository.findByprezimeContainingIgnoreCase(naziv);
+    }
 }

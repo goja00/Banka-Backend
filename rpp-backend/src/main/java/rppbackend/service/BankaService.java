@@ -38,4 +38,14 @@ public class BankaService {
     public void deleteById(Integer id) {
         bankaRepository.deleteById(id);
     }
+    
+    public List<Banka> findBypib(int n)
+    {
+    	return bankaRepository.findBypib(n);
+    }
+    
+    public List<Banka> findBykontakt(String n)
+    {
+    	return bankaRepository.findBykontakt(n);
+    }
 }

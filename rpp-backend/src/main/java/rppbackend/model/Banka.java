@@ -25,7 +25,15 @@ public class Banka  implements Serializable {
     @JsonIgnore
     private List<Filijala> filijala;
 
-    public Banka() {
+    public List<Filijala> getFilijala() {
+		return filijala;
+	}
+
+	public void setFilijala(List<Filijala> filijala) {
+		this.filijala = filijala;
+	}
+
+	public Banka() {
         super();
     }
 

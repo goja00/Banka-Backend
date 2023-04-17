@@ -16,8 +16,8 @@ public class Korisnik_usluge {
     private int id;
     private String ime;
     private String prezime;
-    private String maticni_broj;
-    @OneToMany(mappedBy = "korisnik_usluge",cascade = {CascadeType.ALL})
+    private String maticniBroj;
+    @OneToMany(mappedBy = "korisnikUsluge",cascade = {CascadeType.ALL})
     @JsonIgnore
     private List<Usluga> usluga;
 
@@ -50,11 +50,11 @@ public class Korisnik_usluge {
     }
 
     public String getMaticni_broj() {
-        return maticni_broj;
+        return maticniBroj;
     }
 
     public void setMaticni_broj(String maticni_broj) {
-        this.maticni_broj = maticni_broj;
+        this.maticniBroj = maticni_broj;
     }
 
     public List<Usluga> getUsluga() {

@@ -1,11 +1,14 @@
 package rppbackend.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import rppbackend.model.Filijala;
+import rppbackend.model.Korisnik_usluge;
 import rppbackend.model.Usluga;
 import rppbackend.repository.UslugaRepository;
 
@@ -35,5 +38,19 @@ public class UslugaService {
 
     public void deleteById(Integer id) {
         uslugaRepository.deleteById(id);
+    }
+    
+    public List<Usluga> findByfilijala(Filijala f)
+    {
+    	return uslugaRepository.findByfilijala(f);
+    }
+    public List<Usluga> findBykorisnikUsluge(Korisnik_usluge f)
+    {
+    	return uslugaRepository.findBykorisnikUsluge(f);
+    }
+    
+    public List<Usluga> findBydatumUgovora(Date d)
+    {
+    	return uslugaRepository.findBydatumUgovora(d);
     }
 }

@@ -1,6 +1,7 @@
 package rppbackend.controller;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.ApiOperation;
+import rppbackend.model.Banka;
+import rppbackend.model.Filijala;
+import rppbackend.model.Korisnik_usluge;
 import rppbackend.model.Usluga;
+import rppbackend.service.FilijalaService;
+import rppbackend.service.Korisnik_uslugeService;
 import rppbackend.service.UslugaService;
 
 
@@ -20,6 +26,10 @@ public class UslugaController {
 
     @Autowired
     private UslugaService uslugaService;
+    @Autowired
+    private FilijalaService filijalaService;
+    @Autowired
+    private Korisnik_uslugeService korisnikUslugeService;
     @Autowired
     private JdbcTemplate jdbcTemplate;
     
@@ -85,5 +95,46 @@ public class UslugaController {
         return new ResponseEntity<>(f,HttpStatus.OK);
 
     }
+    
+    @ApiOperation(value = "Get list of Usluga by filijala ID.")
+    @GetMapping("usluga/filijala/{id}")
+    public ResponseEntity<List<Usluga>> getByfilijala(@PathVariable("id") Integer id){
+    	Optional<Filijala> b=filijalaService.findById(id);
+    	if(b.isPresent())
+    	{
+        List<Usluga> f=uslugaService.findByfilijala(b.get());
+        return new ResponseEntity<>(f,HttpStatus.OK);
+    	}
+    	else {
+    		return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+    	}
+
+    }
+    
+    @ApiOperation(value = "Get list of Usluga by korisnik_usluge ID.")
+    @GetMapping("usluga/korisnik_usluge/{id}")
+    public ResponseEntity<List<Usluga>> getBykorisnik(@PathVariable("id") Integer id){
+    	Optional<Korisnik_usluge> b=korisnikUslugeService.findById(id);
+    	if(b.isPresent())
+    	{
+        List<Usluga> f=uslugaService.findBykorisnikUsluge(b.get());
+        return new ResponseEntity<>(f,HttpStatus.OK);
+    	}
+    	else {
+    		return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+    	}
+
+    }
+    @ApiOperation(value = "Get list of Usluga by datum_ugovora.")
+    @GetMapping("usluga/datum_ugovora/{id}")
+    public ResponseEntity<List<Usluga>> getBydatumUgovora(@PathVariable("id") Date id){
+    	
+        List<Usluga> f=uslugaService.findBydatumUgovora(id);
+        return new ResponseEntity<>(f,HttpStatus.OK);
+ 
+
+    }
+    
+    
 
 }

@@ -86,5 +86,20 @@ public class Korisnik_uslugaController {
         return new ResponseEntity<>(f,HttpStatus.OK);
 
     }
+    
+    @ApiOperation(value = "Gets Korisnik_usluge by maticniBroj.")
+    @GetMapping("korisnik_usluge/maticniBroj/{mb}")
+    public ResponseEntity<List<Korisnik_usluge>> getBymaticniBroj(@PathVariable("mb") String naziv){
+        List<Korisnik_usluge> f=korisnikUslugeService.findBymaticniBroj(naziv);
+        return new ResponseEntity<>(f,HttpStatus.OK);
+
+    }
+    @ApiOperation(value = "Gets Korisnik_usluge by Naziv.")
+    @GetMapping("korisnik_usluge/prezime/{naziv}")
+    public ResponseEntity<List<Korisnik_usluge>> getByprezime(@PathVariable("naziv") String naziv){
+        List<Korisnik_usluge> f=korisnikUslugeService.findByprezimeContainingIgnoreCase(naziv);
+        return new ResponseEntity<>(f,HttpStatus.OK);
+
+    }
 
 }
