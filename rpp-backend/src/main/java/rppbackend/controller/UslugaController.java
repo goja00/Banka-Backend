@@ -125,15 +125,7 @@ public class UslugaController {
     	}
 
     }
-    @ApiOperation(value = "Get list of Usluga by datum_ugovora.")
-    @GetMapping("usluga/datum_ugovora/{id}")
-    public ResponseEntity<List<Usluga>> getBydatumUgovora(@PathVariable("id") Date id){
-    	
-        List<Usluga> f=uslugaService.findBydatumUgovora(id);
-        return new ResponseEntity<>(f,HttpStatus.OK);
- 
-    }
+   
     
     
-
 }

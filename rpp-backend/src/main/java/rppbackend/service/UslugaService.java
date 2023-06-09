@@ -46,8 +46,5 @@ public class UslugaService {
     	return uslugaRepository.findBykorisnikUsluge(f);
     }
     
-    public List<Usluga> findBydatumUgovora(Date d)
-    {
-    	return uslugaRepository.findBydatumUgovora(d);
-    }
+
 }

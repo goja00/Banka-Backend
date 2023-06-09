@@ -1,14 +1,14 @@
 ------banka--------
 
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '(381)11 222-6000, 222-6713','ADDIKO BANK AD BEOGRAD',100228215);
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '(381)011/202-9050','AGROINDUSTRIJSKO KOMERCIJALNA BANKA AIK BANKA AKCIONARSKO DRUŠTVO, BEOGRAD',100618836);
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '(381) 011/2205-500','ALTA BANKA AD BEOGRAD',100001829);
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '(381) 011/3952-213','API BANK AKCIONARSKO DRUŠTVO BEOGRAD',105701111);
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '(381) 011/2011-200','BANCA INTESA AKCIONARSKO DRUŠTVO BEOGRAD (NOVI BEOGRAD)',100001159);
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '(381) 011/2020-292','BANKA POŠTANSKA ŠTEDIONICA AKCIONARSKO DRUŠTVO, BEOGRAD (PALILULA)',100002549);
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '(381)011/6351-000','BANK OF CHINA SRBIJA AKCIONARSKO DRUŠTVO BEOGRAD - NOVI BEOGRAD',109837136);
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '0800/201-201','ERSTE BANK AKCIONARSKO DRUŠTVO, NOVI SAD',101626723);
-INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '0800/111-144','EUROBANK DIREKTNA AKCIONARSKO DRUŠTVO BEOGRAD',100002532);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '381 011 222 6000','ADDIKO BANK AD BEOGRAD',100228215);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '381 011 202 9050','AGROINDUSTRIJSKO KOMERCIJALNA BANKA AIK BANKA AKCIONARSKO DRUŠTVO, BEOGRAD',100618836);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '381 011 220 5500','ALTA BANKA AD BEOGRAD',100001829);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '381 011 395 2213','API BANK AKCIONARSKO DRUŠTVO BEOGRAD',105701111);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '381 011 201 1200','BANCA INTESA AKCIONARSKO DRUŠTVO BEOGRAD (NOVI BEOGRAD)',100001159);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '381 011 202 0292','BANKA POŠTANSKA ŠTEDIONICA AKCIONARSKO DRUŠTVO, BEOGRAD (PALILULA)',100002549);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '381 011 635 1000','BANK OF CHINA SRBIJA AKCIONARSKO DRUŠTVO BEOGRAD - NOVI BEOGRAD',109837136);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '0800 201 201','ERSTE BANK AKCIONARSKO DRUŠTVO, NOVI SAD',101626723);
+INSERT INTO public.banka ("id","kontakt","naziv","pib")VALUES(nextval('banka_seq'), '0800 111 144','EUROBANK DIREKTNA AKCIONARSKO DRUŠTVO BEOGRAD',100002532);
 
 ---------filijala--------------
 
